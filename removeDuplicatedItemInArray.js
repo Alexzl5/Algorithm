@@ -15,6 +15,11 @@ Array.prototype.DeleteRepeatedItem = function(){
 
 // using indexof & push & create new empty array to remove repeated file
 
+ 
+
+
+
+/*
 Array.prototype.DeleteRepeatedItem = function() {
   let arr = [];
   for (let i = 0; i < this.length; i++) {
@@ -24,6 +29,19 @@ Array.prototype.DeleteRepeatedItem = function() {
   }
   return arr
 };
+*/
+
+// Reomove duplicates from js array ES6
+
+const RemoveDuplicates = arr => arr.filter((ele,idx,arr)=>arr.indexOf(ele)===idx)
+
+const viaNewSet = arr => [...new Set(arr)]
+
+const uniqueArr = arr => [...new Set(arr.map(o=>JSON.stringify(o)))].map(s=>JSON.parse(s))
 
 let arr = [1,2,2,5,3,6,7,1,6,2,9,20,2,1,2]
-console.log(arr.DeleteRepeatedItem())
+const arrObj = [{a:1,b:2}, {a:1,b:2}, {a:1,b:2,c:3}, {a:1,b:2,c:3,d:4}]
+console.log(RemoveDuplicates(arr))
+console.log(viaNewSet(arr))
+console.log(uniqueArr(arr))
+console.log(uniqueArr(arrObj))
